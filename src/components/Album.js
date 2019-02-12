@@ -13,7 +13,8 @@ class Album extends Component {
             album: album,
             currentSong: album.songs[0],
             isPlaying: false,
-            iconStyle: ""
+            iconStyle: "",
+            trackPlaying: null
         };
 
         this.audioElement = document.createElement('audio');
@@ -29,6 +30,7 @@ class Album extends Component {
     pause() {
         this.audioElement.pause();
         this.setState({ isPlaying: false });
+        this.setState({ trackPlaying: null });
     }
 
     setSong(song) {
@@ -36,7 +38,8 @@ class Album extends Component {
         this.setState({ currentSong: song });
     }
 
-    handleSongClick(song) {
+    handleSongClick(song, index) {
+        this.setState({ trackPlaying: index })
         const isSameSong = this.state.currentSong === song;
         if (this.state.isPlaying && isSameSong) {
             this.pause();
@@ -45,17 +48,23 @@ class Album extends Component {
             this.play()
         }
     }
-    handleMouseEnter(song) {
-        const isSameSong = this.state.currentSong === song;
-        if (this.state.isPlaying && isSameSong) {
-            this.setState({iconStyle: "icon ion-md-pause"})
+    handleMouseEnter(index) {
+        // const isSameSong = this.state.currentSong === song;
+        // if (this.state.isPlaying && isSameSong) {
+        //     this.setState({iconStyle: "icon ion-md-pause"})
+        // } else {
+        //     this.setState({iconStyle: "icon ion-md-play"})
+        // }
+        if (this.trackPlaying == index) {
+            this.setState({ iconStyle: "icon ion-md-play" })
         } else {
-            this.setState({iconStyle: "icon ion-md-play"})
+            this.setState({ iconStyle: "icon ion-md-pause" })
         }
+        console.log(this.state.iconStyle)
     }
 
     handleMouseLeave() {
-        this.setState({iconStyle: ""})
+        this.setState({ iconStyle: "" })
     }
 
     render() {
@@ -79,10 +88,10 @@ class Album extends Component {
                     <tbody>
                         {this.state.album.songs.map( (song, index) => 
                             <tr className="song" key={index} 
-                            onClick={() => this.handleSongClick(song)}
-                            onMouseEnter={() => this.handleMouseEnter(song)}
+                            onClick={() => this.handleSongClick(song, index)}
+                            onMouseEnter={() => this.handleMouseEnter(index)}
                             onMouseLeave={() => this.handleMouseLeave()}>
-                                <td><span className={this.state.iconStyle}>{index + 1}</span></td>
+                                <td><span className={this.state.trackPlaying == index ? this.state.iconStyle : ""}> {!this.state.iconStyle ? (index + 1) : ""}</span></td>
                                 <td>{song.title}</td>
                                 <td>{song.duration}</td>
                             </tr>
