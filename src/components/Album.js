@@ -14,7 +14,8 @@ class Album extends Component {
             currentSong: album.songs[0],
             isPlaying: false,
             iconStyle: "",
-            trackPlaying: -1
+            trackPlaying: -1,
+            hoverTrack: null
         };
 
         this.audioElement = document.createElement('audio');
@@ -43,12 +44,15 @@ class Album extends Component {
         const isSameSong = this.state.currentSong === song;
         if (this.state.isPlaying && isSameSong) {
             this.pause();
+            this.setState({ iconStyle: "icon ion-md-play" })
         } else {
             if (!isSameSong) { this.setSong(song); }
-            this.play()
+            this.play();
+            this.setState({ iconStyle: "icon ion-md-pause" })
         }
     }
     handleMouseEnter(index) {
+        this.setState({ hoverTrack: index})
         if (this.state.trackPlaying === index) {
             this.setState({ iconStyle: "icon ion-md-pause" });
         } else {
@@ -58,7 +62,8 @@ class Album extends Component {
     }
 
     handleMouseLeave() {
-        this.setState({ iconStyle: "" })
+        this.setState({ iconStyle: "" });
+        this.setState({ hoverTrack: null});
     }
 
     render() {
@@ -85,7 +90,7 @@ class Album extends Component {
                             onClick={() => this.handleSongClick(song, index)}
                             onMouseEnter={() => this.handleMouseEnter(index)}
                             onMouseLeave={() => this.handleMouseLeave()}>
-                                <td><span className={this.state.trackPlaying === index ? this.state.iconStyle : ""}> {!this.state.iconStyle ? (index + 1) : ""}</span></td>
+                                <td><span className={this.state.hoverTrack === index ? this.state.iconStyle : ""}> {this.state.hoverTrack !== index ? (index + 1) : ""}</span></td>
                                 <td>{song.title}</td>
                                 <td>{song.duration}</td>
                             </tr>
