@@ -165,7 +165,7 @@ class Album extends Component {
                             onMouseLeave={() => this.handleMouseLeave()}>
                                 <td><span className={this.state.hoverTrack === index ? this.state.iconStyle : ""}> {this.state.hoverTrack !== index ? (index + 1) : ""}</span></td>
                                 <td>{song.title}</td>
-                                <td>{song.duration}</td>
+                                <td>{this.formatTime(song.duration)}</td>
                             </tr>
                             
                         ) }
