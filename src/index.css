@@ -12,3 +12,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.bloc {
+  font-family: 'Londrina Shadow', cursive;
+  font-size: 10em;
+}
+
+.hero-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 4em;
+}
+
+.hr-style {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    width: 50%
+}
+
+.point-title {
+  font-size: 2em;
+}
+
+#album-cover-art {
+  width: 20em;
+}
+
+.library-image {
+  width: 20em;
+}
+
+.library-title {
+  font-size: 2em;
+  font-weight: bold;
+  text-decoration: none;
+}
+.library-artist {
+  font-size: 1em;
+}
+
+.no-decs {
+  text-decoration: none;
+}
