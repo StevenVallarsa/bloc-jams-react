@@ -10,7 +10,7 @@ class Library extends Component {
     
     render() {
         return (
-            <section className='col-md-6 no-decs'>
+            <section>
                 {
                     this.state.albums.map( (album, index) => 
                         <Link to={`/album/${album.slug}`} key={index}>

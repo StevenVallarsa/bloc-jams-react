@@ -53,4 +53,15 @@ code {
 
 .no-decs {
   text-decoration: none;
+  text-decoration-style: none
+}
+
+img#album-cover-art {
+  width: 400px;
+  height: 400px;
+  float: left;
+  display: inline;
+  margin: 20px;
+  margin-left: 100px;
+
 }

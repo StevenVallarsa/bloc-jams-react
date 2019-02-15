@@ -28,19 +28,21 @@ class PlayerBar extends Component {
                     />
                     <div className="total-time">{this.props.formatTime(this.props.duration)}</div>
                 </section>
-                <section id="volume-control">
-                    <div className="ioicon ion-md-volume-low"></div>
-                    <input type="range" 
+                <table id="volume-control" align="center">
+                    <tr>
+                    <td className="ioicon ion-md-volume-low">&nbsp;</td>
+                    <td><input type="range" 
                         className="seek-bar" 
                         value={this.props.currentVolume}
                         max="1"
                         min="0"
                         step="0.1"
                         onChange={this.props.handleVolumeChange}
-                    />
-                    <div className="ioicon ion-md-volume-high"></div>
-                    <div>{this.props.currentVolume}</div>
-                </section>
+                    /></td>
+                    <td>&nbsp;</td>
+                    <td className="ioicon ion-md-volume-high">&nbsp;</td>
+                    </tr>
+                </table>
 
             </section>
         );

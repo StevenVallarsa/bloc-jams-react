@@ -21,10 +21,7 @@ class App extends Component {
           <Route path='/library' component={Library} />
           <Route path='/album/:slug' component={Album} />
         </main>
-        <nav>
-            <Link to='/'>Home</Link> - 
-            <Link to='/library'> Library</Link>
-          </nav>
+      
       </div>
     );
   }
