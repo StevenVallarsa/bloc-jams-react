@@ -6,6 +6,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 code {
@@ -16,11 +18,15 @@ code {
 .bloc {
   font-family: 'Londrina Shadow', cursive;
   font-size: 10em;
+  margin-top: 2rem;
+  text-shadow: 2px 2px 3px white;
 }
 
 .hero-title {
   font-family: 'Anton', sans-serif;
-  font-size: 4em;
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 2rem;
 }
 
 .hr-style {
@@ -39,7 +45,7 @@ code {
 }
 
 .library-image {
-  width: 20em;
+  width: 15em;
 }
 
 .library-title {
@@ -64,4 +70,48 @@ img#album-cover-art {
   margin: 20px;
   margin-left: 100px;
 
+}
+
+nav {
+  align: center;
+  margin: 10px;  
+}
+
+.jumbotron {
+  text-align: center;
+  background: none;
+}
+
+.hero-title {
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  letter-spacing: 3px;
+  text-transform: uppercase
+}
+
+.point-title {
+  color: black;
+  font-weight: bold;
+}
+
+.point-description {
+  font-weight: bold;
+  color: black;
+
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+}
+
+.col {
+  background-color: #ffffff;
+  opacity: 0.8;
 }
